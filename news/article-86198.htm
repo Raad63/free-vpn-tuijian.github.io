@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevpntuijian.github.io/news/article-86198.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SpringCloud Sleuth 分布式请求链路追踪</title>
+        <meta name="description" content="SpringCloud Sleuth 分布式请求链路追踪  SpringCloud Sleuth 概念 搭建分布式请求链路    1、为什么要使用SpringCloud Sleuth？当前面临什么问题" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="免费VPN推荐 推荐免费VPN节点订阅中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevpntuijian.github.io/news/article-86198.htm" />
+    <meta property="og:site_name" content="免费VPN推荐 推荐免费VPN节点订阅中文网" />
+    <meta property="og:title" content="SpringCloud Sleuth 分布式请求链路追踪" />
+    <meta property="og:image" content="https://freevpntuijian.github.io/uploads/20240822/7dcc0d90a2b9c2eb78755cab9b39ddbf.webp" />
+        <meta property="og:release_date" content="2025-04-01T09:49:15" />
+    <meta property="og:updated_time" content="2025-04-01T09:49:15" />
+        <meta property="og:description" content="SpringCloud Sleuth 分布式请求链路追踪  SpringCloud Sleuth 概念 搭建分布式请求链路    1、为什么要使用SpringCloud Sleuth？当前面临什么问题" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringCloud Sleuth 分布式请求链路追踪">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FLK9PDHYGR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FLK9PDHYGR');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>免费VPN推荐</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">SpringCloud Sleuth 分布式请求链路追踪</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <div class="toc"> <h3>SpringCloud Sleuth 分布式请求链路追踪</h3> <ul> <li><a href="#SpringCloud_Sleuth__1" rel="nofollow">SpringCloud Sleuth 概念</a></li> <li><a href="#_10" rel="nofollow">搭建分布式请求链路</a></li> </ul> </div> </h1> <p>1、为什么要使用SpringCloud Sleuth？当前面临什么问题？</p> <blockquote> <p>在微服务框架中，一个客户端发起的请求在后端系统中会经过多个不同的服务节点调用来协同产生最后的请求结果，每个前端请求都会形成一条复杂的分布式服务调用链路，链路中的任何一环出现高延迟或错误都会引起整个请求最后的失败。Spring Cloud Sleuth为Spring Cloud实现了<code>分布式跟踪解决方案</code>，<code>且兼容Zipkin，结合Zipkin做链路跟踪</code>。Spring Cloud Sleuth服务链路跟踪功能可以帮助我们快速的发现错误根源以及监控分析每条请求链路上的性能。</p> </blockquote> <p>2、SpringCloud Sleuth 是什么？</p> <blockquote> <p>（1）<code>SpringCloud Sleuth</code> 是一套提供了完整的服务追踪的解决方案，在分布式系统中提供追踪解决方案并且兼容支持<code>zipkin</code>。<br /> （2）<code>Zipkin</code>：Zipkin是一个<code>分布式跟踪系统</code>。 它有助于收集解决服务体系结构中的延迟问题所需的时序数据。 功能包括该数据的收集和查找。Zipkin最初是为了在Cassandra上存储数据而构建的，因为Cassandra是可扩展的，具有灵活的模式，并且在Twitter中大量使用。 除了支持Cassandra，还支持ElasticSearch和MySQL。如果日志文件中有跟踪ID，则可以直接跳至该跟踪ID。 还可以基于属性进行查询，例如服务，操作名称，标签和持续时间，服务中花费的时间百分比以及操作是否失败。</p> </blockquote> <p>3、解决问题：通过 zipkin 监控、追踪并记录请求调用经过的各个服务节点。</p> </h1> <p><strong>一、Zipkin 的下载安装和概念</strong><br /> 1、<code>下载 zipkin</code>:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://repo1.maven.org/maven2/io/zipkin/zipkin-server/2.14.1/zipkin-server-2.14.1-exec.jar"  rel="nofollow">https://repo1.maven.org/maven2/io/zipkin/zipkin-server/2.14.1/zipkin-server-2.14.1-exec.jar</a><br /> 值得注意的是，SpringCloud 从 F 版起就已不需要自己构建 Zipkin Server 了，只需要调用 jar 包即可。</p> <p>2、运行下载好的 jar 包：<code>java -jar zipkin-server-2.14.1-exec.jar</code>。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221122/74b1aece270d5d11b9eeb2228f8d93df.jpg" alt="SpringCloud Sleuth 分布式请求链路追踪"><br /> 3、访问：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://127.0.0.1:9411"  rel="nofollow">http://127.0.0.1:9411</a><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221122/5693687f52221fecf8f3a67d490e36b1.jpg" alt="SpringCloud Sleuth 分布式请求链路追踪"><br /> 4、完整的调用链路图：表示一请求链路，一条链路通过<code>Trace Id 唯一标识</code>。<code>Span</code>表示发起的请求信息，各个 Span 通过<code>parent id</code>关联起来。</p> <blockquote> <p>（1）完整的调用链路图（原理图）<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221122/e5a96687b690ffe36f788504d8f912bb.jpg" alt="SpringCloud Sleuth 分布式请求链路追踪"><br /><code>Trace：</code>类似树结构的 Span 集合，表示一个调用链路存在的唯一标识。<br /><code>Span：</code>表示调用链路的来源，可以理解成每个一次请求或响应。</p> <p> （2）简化后如下图所示：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221122/281ad187a1218c8bd1d47e4835e72363.jpg" alt="SpringCloud Sleuth 分布式请求链路追踪"><br /> （3）整个链路的依赖关系如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221122/56526d499c7437267e117b8171b09a17.jpg" alt="SpringCloud Sleuth 分布式请求链路追踪"></p> </blockquote> <p><strong>二、服务提供者</strong><br /> 1、修改<code>cloud-cloud-provider-ek-payment8001（cloud-provider-ek-payment8002）</code>负载均衡服务提供者。<br /> 2、引入 pom 文件</p> <pre><code class="prism language-xml"><span class="token comment">&lt;!--包含了sleuth+zipkin--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-cloud-starter-zipkin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span></code></pre> <p>3、修改 yml 配置文件</p> <pre><code class="prism language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span><span class="token key atrule">port</span><span class="token punctuation">:</span><span class="token number">8001</span><span class="token key atrule">spring</span><span class="token punctuation">:</span><span class="token key atrule">application</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>payment<span class="token punctuation">-</span>service<span class="token key atrule">datasource</span><span class="token punctuation">:</span><span class="token key atrule">type</span><span class="token punctuation">:</span> com.alibaba.druid.pool.DruidDataSource<span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> org.gjt.mm.mysql.Driver<span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/db2021<span class="token punctuation">?</span>useUnicode=true<span class="token important">&amp;characterEncoding=utf-8&amp;useSSL=false</span><span class="token key atrule">username</span><span class="token punctuation">:</span> root<span class="token key atrule">password</span><span class="token punctuation">:</span><span class="token number">123456</span><span class="token comment"># Sleuth zipkin配置</span><span class="token key atrule">zipkin</span><span class="token punctuation">:</span><span class="token key atrule">base-url</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">9411</span><span class="token key atrule">sleuth</span><span class="token punctuation">:</span><span class="token key atrule">sampler</span><span class="token punctuation">:</span><span class="token comment"># 采样率值介于 0 到 1 之间，1 则表示全部采集</span><span class="token key atrule">probability</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token key atrule">eureka</span><span class="token punctuation">:</span><span class="token key atrule">client</span><span class="token punctuation">:</span><span class="token comment">#表示收将自己注册到EurekaServer，默认为true</span><span class="token key atrule">register-with-eureka</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token comment">#是否从EurekaServer抓取已有的注册信息，默认为true，单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡</span><span class="token key atrule">fetchRegistry</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token key atrule">service-url</span><span class="token punctuation">:</span><span class="token comment">#defaultZone: http://localhost:7001/eureka  #单机版</span><span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka<span class="token punctuation">,</span>http<span class="token punctuation">:</span>//eureka7002.com<span class="token punctuation">:</span>7002/eureka<span class="token comment">#集群版</span><span class="token key atrule">instance</span><span class="token punctuation">:</span><span class="token key atrule">instance-id</span><span class="token punctuation">:</span> payment8001<span class="token comment">#访问路径可以显示IP地址</span><span class="token key atrule">prefer-ip-address</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token comment">#eureka客户端向服务端发送心跳的时间间隔，单位为秒（默认为30秒）</span><span class="token key atrule">lease-renewal-interval-in-seconds</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token comment">#eureka服务端在收到最后一次心跳后等待时间上限，单位为秒（默认为90秒），超时将删除服务</span><span class="token key atrule">lease-expiration-duration-in-seconds</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token key atrule">mybatis</span><span class="token punctuation">:</span><span class="token key atrule">mapperLocations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>mapper/<span class="token important">*.xml</span><span class="token key atrule">type-aliases-package</span><span class="token punctuation">:</span> springcloud.atguigu.springcloud.entities<span class="token comment">#所有entity别名所在的包</span></code></pre> <p>4、controller</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@RestController</span><span class="token annotation punctuation">@Slf4j</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">PaymentController</span><span class="token punctuation">{<!-- --></span><span class="token comment">//SpringCloud Sleuth、Zipkin 请求链路跟踪测试</span><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/payment/zipkin"</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">paymentZipkin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token string">"服务："</span><span class="token operator">+</span> serverPort<span class="token operator">+</span><span class="token string">"--》 Zipkin 请求链路跟踪测试"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p><strong>三、服务消费者</strong><br /> 1、修改<code>cloud-consumer-ek-order80</code>服务消费者<br /> 2、引入 pom 依赖</p> <pre><code class="prism language-xml"><span class="token comment">&lt;!--包含了sleuth+zipkin--&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-cloud-starter-zipkin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span></code></pre> <p>3、修改 yml 配置文件</p> <pre><code class="prism language-yml"><span class="token key atrule">server</span><span class="token punctuation">:</span><span class="token key atrule">port</span><span class="token punctuation">:</span><span class="token number">8002</span><span class="token key atrule">spring</span><span class="token punctuation">:</span><span class="token key atrule">application</span><span class="token punctuation">:</span><span class="token key atrule">name</span><span class="token punctuation">:</span> cloud<span class="token punctuation">-</span>payment<span class="token punctuation">-</span>service<span class="token key atrule">datasource</span><span class="token punctuation">:</span><span class="token key atrule">type</span><span class="token punctuation">:</span> com.alibaba.druid.pool.DruidDataSource<span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> org.gjt.mm.mysql.Driver<span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/db2021<span class="token punctuation">?</span>useUnicode=true<span class="token important">&amp;characterEncoding=utf-8&amp;useSSL=false</span><span class="token key atrule">username</span><span class="token punctuation">:</span> root<span class="token key atrule">password</span><span class="token punctuation">:</span><span class="token number">123456</span><span class="token comment"># Sleuth zipkin配置</span><span class="token key atrule">zipkin</span><span class="token punctuation">:</span><span class="token key atrule">base-url</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span><span class="token number">9411</span><span class="token key atrule">sleuth</span><span class="token punctuation">:</span><span class="token key atrule">sampler</span><span class="token punctuation">:</span><span class="token comment"># 采样率值介于 0 到 1 之间，1 则表示全部采集</span><span class="token key atrule">probability</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token key atrule">eureka</span><span class="token punctuation">:</span><span class="token key atrule">client</span><span class="token punctuation">:</span><span class="token comment">#表示收将自己注册到EurekaServer，默认为true</span><span class="token key atrule">register-with-eureka</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token comment">#是否从EurekaServer抓取已有的注册信息，默认为true，单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡</span><span class="token key atrule">fetchRegistry</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token key atrule">service-url</span><span class="token punctuation">:</span><span class="token comment">#      defaultZone: http://localhost:7001/eureka  #单机版</span><span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//eureka7001.com<span class="token punctuation">:</span>7001/eureka<span class="token punctuation">,</span>http<span class="token punctuation">:</span>//eureka7002.com<span class="token punctuation">:</span>7002/eureka<span class="token comment">#集群版</span><span class="token key atrule">instance</span><span class="token punctuation">:</span><span class="token key atrule">instance-id</span><span class="token punctuation">:</span> payment8002<span class="token comment">#访问路径可以显示IP地址</span><span class="token key atrule">prefer-ip-address</span><span class="token punctuation">:</span><span class="token boolean important">true</span><span class="token comment">#eureka客户端向服务端发送心跳的时间间隔，单位为秒（默认为30秒）</span><span class="token key atrule">lease-renewal-interval-in-seconds</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token comment">#eureka服务端在收到最后一次心跳后等待时间上限，单位为秒（默认为90秒），超时将删除服务</span><span class="token key atrule">lease-expiration-duration-in-seconds</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token key atrule">mybatis</span><span class="token punctuation">:</span><span class="token key atrule">mapperLocations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>mapper/<span class="token important">*.xml</span><span class="token key atrule">type-aliases-package</span><span class="token punctuation">:</span> springcloud.atguigu.springcloud.entities<span class="token comment">#所有entity别名所在的包</span></code></pre> <p>4、controller</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@RestController</span><span class="token annotation punctuation">@Slf4j</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">OrderController</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">final</span><span class="token class-name">String</span> PAYMENT_URL<span class="token operator">=</span><span class="token string">"http://CLOUD-PAYMENT-SERVICE"</span><span class="token punctuation">;</span><span class="token annotation punctuation">@Resource</span><span class="token keyword">private</span><span class="token class-name">RestTemplate</span> restTemplate<span class="token punctuation">;</span><span class="token comment">//SpringCloud Sleuth、Zipkin 请求链路跟踪测试</span><span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/consumer/payment/zipkin"</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">paymentZipkin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> restTemplate<span class="token punctuation">.</span><span class="token function">getForObject</span><span class="token punctuation">(</span>PAYMENT_URL<span class="token operator">+</span><span class="token string">"/payment/zipkin"</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p><strong>四、测试验证</strong><br /> 1、地址栏输入：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost/consumer/payment/zipkin"  rel="nofollow">http://localhost/consumer/payment/zipkin</a><br /> 2、刷新 Zipkin 监控：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:9411"  rel="nofollow">http://localhost:9411</a><br /> （1）<strong>查找：</strong> 可以看到微<code>服务数量</code>、<code>请求调用深度</code>、<code>Span总数</code>。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221122/4a0717a78b54b42b06539e7a40e5424d.jpg" alt="SpringCloud Sleuth 分布式请求链路追踪">（1）<strong>依赖关系：</strong><code>cloud-order-server</code> 依赖于<code>cloud-payment-service</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221122/ea258f56a5256afc7ce48e908b9d2879.jpg" alt="SpringCloud Sleuth 分布式请求链路追踪"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85485.htm">猫三针疫苗是什么意思（猫三针疫苗都是什么）</a></p>
+                                        <p>下一个：<a href="/news/article-86199.htm">Spring Security实现基于RBAC的权限表达式动态访问控制</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-82628.htm" title="1970年农历四月二十六是什么星座（1970年农历四月二十六是什么星座的）">1970年农历四月二十六是什么星座（1970年农历四月二十六是什么星座的）</a></li>
+                        <li class="py-2"><a href="/news/article-84055.htm" title="@RequestMapping注解最详细解析">@RequestMapping注解最详细解析</a></li>
+                        <li class="py-2"><a href="/news/article-83320.htm" title="JavaScript如何使用过滤器从数组中删除元素">JavaScript如何使用过滤器从数组中删除元素</a></li>
+                        <li class="py-2"><a href="/news/article-82627.htm" title="宠物领养图片真实大全（宠物领养百度百科）">宠物领养图片真实大全（宠物领养百度百科）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-free-v2ray-subscribe.htm" title="免费VPN推荐 | 4月2日20.9M/S|免费SSR/Shadowrocket/Clash/V2ray订阅节点地址">免费VPN推荐 | 4月2日20.9M/S|免费SSR/Shadowrocket/Clash/V2ray订阅节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-free-node-subscribe-links.htm" title="免费VPN推荐 | 3月30日18.8M/S|免费Shadowrocket/Clash/SSR/V2ray订阅节点地址">免费VPN推荐 | 3月30日18.8M/S|免费Shadowrocket/Clash/SSR/V2ray订阅节点地址</a></li>
+                        <li class="py-2"><a href="/news/article-80522.htm" title="20-30岁男士手表(男款腕表品牌)">20-30岁男士手表(男款腕表品牌)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-v2ray-subscribe.htm" title="免费VPN推荐 | 3月24日19.1M/S|免费SSR/V2ray/Shadowrocket/Clash订阅节点地址">免费VPN推荐 | 3月24日19.1M/S|免费SSR/V2ray/Shadowrocket/Clash订阅节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-26-free-v2ray-subscribe.htm" title="免费VPN推荐 | 3月26日20.9M/S|免费Shadowrocket/Clash/V2ray/SSR订阅节点地址">免费VPN推荐 | 3月26日20.9M/S|免费Shadowrocket/Clash/V2ray/SSR订阅节点地址</a></li>
+                        <li class="py-2"><a href="/news/article-86914.htm" title="深入理解mmap&#8211;内核代码分析及驱动demo示例">深入理解mmap&#8211;内核代码分析及驱动demo示例</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">免费VPN推荐 推荐免费VPN节点订阅中文网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
