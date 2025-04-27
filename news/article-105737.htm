@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freevpntuijian.github.io/news/article-105737.htm" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>java实现快速排序以及快速排序的原理</title>
+        <meta name="description" content="快速排序（Quick Sort）是对冒泡排序的一种改进，通过一趟排序将要排序的数据序列分成独立的两部分，其中一部分的所有数据比另一部分的所有数据都要小，然后按此方法对两部分数据分别进行快速排序，整个排" />
+        <link rel="icon" href="/assets/website/img/vergeclash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="免费VPN推荐 推荐免费VPN节点订阅中文网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freevpntuijian.github.io/news/article-105737.htm" />
+    <meta property="og:site_name" content="免费VPN推荐 推荐免费VPN节点订阅中文网" />
+    <meta property="og:title" content="java实现快速排序以及快速排序的原理" />
+    <meta property="og:image" content="https://freevpntuijian.github.io/uploads/20240822/50429b4405303dc914fbc208f85cfa22.webp" />
+        <meta property="og:release_date" content="2025-04-27T08:30:19" />
+    <meta property="og:updated_time" content="2025-04-27T08:30:19" />
+        <meta property="og:description" content="快速排序（Quick Sort）是对冒泡排序的一种改进，通过一趟排序将要排序的数据序列分成独立的两部分，其中一部分的所有数据比另一部分的所有数据都要小，然后按此方法对两部分数据分别进行快速排序，整个排" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java实现快速排序以及快速排序的原理">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <!-- fontawesome css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/fontawesome-all.min.css">
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="/assets/website/fonts/vergeclash/flaticon.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/magnific-popup.css">
+    <!-- nice-select css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/nice-select.css">
+    <!-- bootstrap css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/bootstrap.min.css">
+    <!-- swipper css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/swiper.min.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/animate.css">
+    <!-- main style css link -->
+    <link rel="stylesheet" href="/assets/website/css/vergeclash/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FLK9PDHYGR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FLK9PDHYGR');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div><!-- /preloader-icon -->
+        </div><!-- /preloader-inner -->
+    </div><!-- /preloader -->
+    <!-- header-section start -->
+    <header class="header-section">
+        <div class="header">
+            <div class="header-bottom-area">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <a class="site-logo site-title" href="/">
+                                                <span>免费VPN推荐</span>
+                                                </a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fas fa-bars"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav main-menu ml-auto">
+                                                                <li><a href="/">首页</a></li>
+                                                                <li><a href="/free-nodes/">免费节点</a></li>
+                                                                <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li><a href="/news/">新闻资讯</a></li>
+                                                                <li><a href="/client.htm">客户端</a></li>
+                                                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+    <!-- inner-banner-section start -->
+    <section class="inner-banner-section bg-overlay-main-two bg_img" data-background="assets/images/bg-3.jpg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="inner-banner-content">
+                        <h1 class="title wow fade-in-up" data-wow-duration="1s" data-wow-delay="0.5s">java实现快速排序以及快速排序的原理</h1>
+                        <div class="breadcrumb-area wow fade-in-bottom" data-wow-duration="1s" data-wow-delay="0.5s">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                                    <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">正文</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- inner-banner-section end -->
+    
+    <a href="#" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <!-- about-section start -->
+    <section class="about-section pd-t-120 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Node官网订阅站" data-url="https://clashnode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>快速排序（Quick Sort）是对冒泡排序的一种改进，通过一趟排序将要排序的数据序列分成独立的两部分，其中一部分的所有数据比另一部分的所有数据都要小，然后按此方法对两部分数据分别进行快速排序，整个排序过程递归进行，最终使整个数据序列变成有序的数据序列。</p> <ol> <li>快速排序算法的原理<br /> 快速排序算法的原理是：选择一个关键值作为基准值（一般选择第1个元素为基准元素），将比基准值大的都放在右边的序列中，将比基准值小的都放在左边的序列中。具体的循环过程如下。<br /> （1）从后向前比较，用基准值和最后一个值进行比较。如果比基准值小，则交换位置；如果比基准值大，则继续比较下一个值，直到找到第1个比基准值小的值才交换位置。<br /> （2）在从后向前找到第1个比基准值小的值并交换位置后，从前向后开始比较。如果有比基准值大的，则交换位置；如果没有，则继续比较下一个，直到找到第1个比基准值大的值才交换位置。<br /> （3）重复执行以上过程，直到从前向后比较的索引大于等于从后向前比较的索引，则结束一次循环。这时对于基准值来说，左右两边都是有序的数据序列。<br /> （4）重复循环以上过程，分别比较左右两边的序列，直到整个数据序列有序。</li> </ol> <p>如下图所示是对数组[6,9,5,7,8]进行快速排序。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/8edb8716491c5a42bea0e35451d642cd.jpg" alt="java实现快速排序以及快速排序的原理"></p> <p>先以第1个元素6为基准值，从数组的最后一位从后向前比较（比较顺序为：8&gt;6、7&gt;6、5&lt;6），找到第1个比6小的数据5，然后进行第1次位置交换，即将数据6（索引为0）和数据5（索引为2）交换位置，之后基准值6位于索引2处；接着从前向后比较（比较顺序为：5&lt;6、9&gt;6），找到第1个比6大的数据9，然后进行第2次位置交换，即将数据6（索引为2）和数据9（索引为1）交换位置，交换后6位于索引1处；这时高位和低位都在6处，第一次递归完成。在第一次递归完成后，基准值6前面的数据都比6小，基准值6后面的数据都比6大。重复执行上述过程，直到整个数组有序。</p> <ol start="2"> <li>快速排序的java实现</li> </ol> <pre><code class="prism language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>*<span class="token punctuation">;</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">Solution</span><span class="token punctuation">{<!-- --></span><span class="token comment">/**      * 快速排序      * @param arr 数组      * @param low 最低位      * @param high 最高位      * @return 排序好的数组      */</span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">quickSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span><span class="token keyword">int</span> low<span class="token punctuation">,</span><span class="token keyword">int</span> high<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">int</span> left<span class="token operator">=</span> low<span class="token punctuation">;</span><span class="token comment">//从前向后比较的索引</span><span class="token keyword">int</span> right<span class="token operator">=</span> high<span class="token punctuation">;</span><span class="token comment">//从后向前比较的索引</span><span class="token keyword">int</span> key<span class="token operator">=</span> arr<span class="token punctuation">[</span>low<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//基准值</span><span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span> right<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//从后向前比较</span><span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span> right<span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">&gt;=</span> key<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 right<span class="token operator">--</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//如果没有比基准值小的，则比较下一个，直到有比基准值小的，则交换位置，然后又从前向后比较</span><span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">&lt;=</span> key<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">int</span> temp<span class="token operator">=</span> arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>                 arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>                 arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">=</span> temp<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//从前向后比较</span><span class="token keyword">while</span><span class="token punctuation">(</span>left<span class="token operator">&lt;</span> right<span class="token operator">&amp;&amp;</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">&lt;=</span> key<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 left<span class="token operator">++</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//如果没有比基准值大的，则比较下一个，直到有比基准值大的，则交换位置</span><span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">&gt;=</span> key<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">int</span> temp<span class="token operator">=</span> arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>                 arr<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token operator">=</span> arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>                 arr<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token operator">=</span> temp<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token comment">//此时第一次循环比较结束，基准值的位置已经确定。左边的值都比关键值小，右边的值都比关键值大，但是两边的顺序还有可能不一样，接着进行下面的递归调用</span><span class="token comment">//递归左边序列：从第一个索引位置到“关键值索引-1”</span><span class="token keyword">if</span><span class="token punctuation">(</span>left<span class="token operator">&gt;</span> low<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>low<span class="token punctuation">,</span>left<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">//递归右边序列：从“关键值索引+1”到最后一个位置</span><span class="token keyword">if</span><span class="token punctuation">(</span>right<span class="token operator">&lt;</span> high<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>high<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">return</span> arr<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token operator">=</span><span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> arr<span class="token punctuation">.</span>length<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>Arrays<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>以上代码定义了名为quickSort()的快速排序方法，在该方法中定义了3个变量start、end和key，分别表示从前向后比较的索引、从后向前比较的索引和基准值。具体过程为：①通过while循环从后向前比较，找到比基准值小的，则交换位置；②通过while循环从前向后比较，找到比基准值大的，则交换位置；③根据从前向后比较的索引和从后向前比较的索引的大小不断递归调用，直到递归完成，返回排序后的结果。</p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-104879.htm">宠物医院证件办理流程图（宠物医院证好办吗）</a></p>
+                                        <p>下一个：<a href="/news/article-105738.htm">国内兽药知名品牌50强排名（中国兽药十大名牌厂家）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-100264.htm" title="宠物领养协议法律效力如何 宠物领养协议法律效力如何">宠物领养协议法律效力如何 宠物领养协议法律效力如何</a></li>
+                        <li class="py-2"><a href="/news/article-98014.htm" title="2020年中国动物疫苗市场分析（中国动物疫苗10强企业）">2020年中国动物疫苗市场分析（中国动物疫苗10强企业）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-node-share.htm" title="免费VPN推荐 | 4月7日20.3M/S|免费Shadowrocket/SSR/Clash/V2ray订阅节点地址">免费VPN推荐 | 4月7日20.3M/S|免费Shadowrocket/SSR/Clash/V2ray订阅节点地址</a></li>
+                        <li class="py-2"><a href="/news/article-100263.htm" title="vue动态控制样式">vue动态控制样式</a></li>
+                        <li class="py-2"><a href="/news/article-84056.htm" title="猫最忌讳的三个属相（有些人命里不能养猫）">猫最忌讳的三个属相（有些人命里不能养猫）</a></li>
+                        <li class="py-2"><a href="/news/article-82628.htm" title="1970年农历四月二十六是什么星座（1970年农历四月二十六是什么星座的）">1970年农历四月二十六是什么星座（1970年农历四月二十六是什么星座的）</a></li>
+                        <li class="py-2"><a href="/news/article-80071.htm" title="兽医打疫苗简报 兽医打疫苗简报怎么写">兽医打疫苗简报 兽医打疫苗简报怎么写</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-clash-v2ray-ss-ssr.htm" title="免费VPN推荐 | 4月1日20.3M/S|免费V2ray/Shadowrocket/SSR/Clash订阅节点地址">免费VPN推荐 | 4月1日20.3M/S|免费V2ray/Shadowrocket/SSR/Clash订阅节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-free-high-speed-nodes.htm" title="免费VPN推荐 | 3月27日21.8M/S|免费Clash/SSR/V2ray/Shadowrocket订阅节点地址">免费VPN推荐 | 3月27日21.8M/S|免费Clash/SSR/V2ray/Shadowrocket订阅节点地址</a></li>
+                        <li class="py-2"><a href="/news/article-81268.htm" title="二、Kotlin标准函数和静态函数">二、Kotlin标准函数和静态函数</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">80</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-section end -->
+
+        <div class="privacy-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                                        <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                    <p>
+                        <a href="/">免费VPN推荐 推荐免费VPN节点订阅中文网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer-section end -->
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-3.3.1.min.js"></script>
+    <!-- migarate-jquery -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery-migrate-3.0.0.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/vergeclash/bootstrap.min.js"></script>
+    <!-- magnific-popup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.magnific-popup.js"></script>
+    <!-- isotope -->
+    <script src="/assets/website/js/frontend/vergeclash/isotope.pkgd.min.js"></script>
+    <!-- nice-select js-->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.nice-select.js"></script>
+    <!-- swipper js -->
+    <script src="/assets/website/js/frontend/vergeclash/swiper.min.js"></script>
+    <!-- waypoints js link -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.waypoints.min.js"></script>
+    <!-- counterup js -->
+    <script src="/assets/website/js/frontend/vergeclash/jquery.counterup.min.js"></script>
+    <!--typed js-->
+    <script src="/assets/website/js/frontend/vergeclash/typed.js"></script>
+    <!-- wow js file -->
+    <script src="/assets/website/js/frontend/vergeclash/wow.min.js"></script>
+    <!-- main -->
+    <script src="/assets/website/js/frontend/vergeclash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
