@@ -1,4 +1,4 @@
-# 免费VPN推荐 | 8月14日20.8M/S|免费V2ray/SSR/Shadowrocket/Clash订阅节点地址  更新时间 2025-08-14 10:18:28
+# 免费VPN推荐 | 8月20日19.4M/S|免费Clash/SSR/Shadowrocket/V2ray订阅节点地址  更新时间 2025-08-20 10:13:21
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://freevpntuijian.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://freevpntuijian.github.io/uploads/2025/08/0-20250814.yaml
-- https://freevpntuijian.github.io/uploads/2025/08/1-20250814.yaml
-- https://freevpntuijian.github.io/uploads/2025/08/2-20250814.yaml
-- https://freevpntuijian.github.io/uploads/2025/08/3-20250814.yaml
-- https://freevpntuijian.github.io/uploads/2025/08/4-20250814.yaml
+- https://freevpntuijian.github.io/uploads/2025/08/0-20250820.yaml
+- https://freevpntuijian.github.io/uploads/2025/08/1-20250820.yaml
+- https://freevpntuijian.github.io/uploads/2025/08/2-20250820.yaml
+- https://freevpntuijian.github.io/uploads/2025/08/3-20250820.yaml
+- https://freevpntuijian.github.io/uploads/2025/08/4-20250820.yaml
 
 ### V2ray订阅链接
 
-- https://freevpntuijian.github.io/uploads/2025/08/0-20250814.txt
-- https://freevpntuijian.github.io/uploads/2025/08/1-20250814.txt
-- https://freevpntuijian.github.io/uploads/2025/08/2-20250814.txt
-- https://freevpntuijian.github.io/uploads/2025/08/3-20250814.txt
-- https://freevpntuijian.github.io/uploads/2025/08/4-20250814.txt
+- https://freevpntuijian.github.io/uploads/2025/08/0-20250820.txt
+- https://freevpntuijian.github.io/uploads/2025/08/1-20250820.txt
+- https://freevpntuijian.github.io/uploads/2025/08/2-20250820.txt
+- https://freevpntuijian.github.io/uploads/2025/08/3-20250820.txt
+- https://freevpntuijian.github.io/uploads/2025/08/4-20250820.txt
 
 ### Sing-box订阅链接
 
-- https://freevpntuijian.github.io/uploads/2025/08/20250814.json
+- https://freevpntuijian.github.io/uploads/2025/08/20250820.json
 
 ## 更多clash节点订阅 ：
 
