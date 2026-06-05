@@ -341,6 +341,16 @@ Clash在多并发连接及大规模代理请求场景中表现稳定，连接速
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>如何把 Clash 规则与本地 hosts 文件结合使用？</h5></div>
+    <div class="panel-body">
+        可在 Clash 的 rules 中优先设置域名直连规则，并在系统 hosts 中添加常用站点的固定解析以加速 DNS 解析。注意 hosts 优先级高于 DNS，因此修改 hosts 需谨慎以避免与真实解析冲突。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 协议和混淆组合如何优化稳定性？</h5></div>
+    <div class="panel-body">
+        根据网络封锁情况选择合适协议和混淆组合，如 tls1.2_ticket_auth 模拟 HTTPS 流量。合理组合可提高抗封锁能力和稳定性，保证节点长期可用并优化网络连接。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 如何管理用户流量配额？</h5></div>
     <div class="panel-body">
         管理员可以为每个用户设置上传和下载带宽以及总流量上限。超出限制可自动降速或阻止访问，保证服务器资源合理分配，提高整体网络公平性和用户体验。<hr />    </div>
@@ -351,9 +361,9 @@ Clash在多并发连接及大规模代理请求场景中表现稳定，连接速
         根据网络封锁情况选择适合的混淆和协议组合，例如 tls1.2_ticket_auth 模拟 HTTPS 流量。不同组合对抗 DPI 和封锁能力不同，需要测试后选择最稳定和高效的方案。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的核心组件有哪些？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 在路由器上使用 TUN 模式会有什么影响？</h5></div>
     <div class="panel-body">
-        V2Ray 的核心由 inbound、outbound、routing、policy 等模块组成。Inbound 处理入站请求，Outbound 负责出站连接，Routing 管理流量分流策略。模块化的设计让用户可以自由组合代理方式。<hr />    </div>
+        启用 TUN 模式会拦截并转发路由器上全部或选定流量，这会增加路由器 CPU 与内存负担，可能影响路由器其他服务表现。建议在性能足够的设备上启用，或仅对特定设备/端口进行分流。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 节点分组管理有哪些优势？</h5></div>
@@ -361,34 +371,24 @@ Clash在多并发连接及大规模代理请求场景中表现稳定，连接速
         节点可按地区、延迟或用途分类，结合策略组实现自动分流。便于管理大量节点，快速选择最优节点，提高访问速度和连接稳定性，同时优化维护效率和网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的策略组如何根据节点延迟自动切换？</h5></div>
-    <div class="panel-body">
-        策略组会根据节点延迟和丢包率自动选择最优节点。结合路由规则，可保证国内流量直连、海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 在路由器上使用 TUN 模式会有什么影响？</h5></div>
-    <div class="panel-body">
-        启用 TUN 模式会拦截并转发路由器上全部或选定流量，这会增加路由器 CPU 与内存负担，可能影响路由器其他服务表现。建议在性能足够的设备上启用，或仅对特定设备/端口进行分流。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的规则订阅更新机制是怎样的？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持远程规则订阅 URL，可自动下载并更新节点和分流规则。用户可设置更新频率，如每天或每小时，确保规则和节点始终保持最新状态，提高网络管理效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何把 Clash 规则与本地 hosts 文件结合使用？</h5></div>
-    <div class="panel-body">
-        可在 Clash 的 rules 中优先设置域名直连规则，并在系统 hosts 中添加常用站点的固定解析以加速 DNS 解析。注意 hosts 优先级高于 DNS，因此修改 hosts 需谨慎以避免与真实解析冲突。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 如何结合 Xray 内核实现多协议支持？</h5></div>
     <div class="panel-body">
         Matsuri 可加载 Xray 核心，通过配置多 inbound/outbound 模块实现 VMess、VLess、Trojan 等协议共存。用户可在单一服务端配置文件中同时支持多客户端访问，便于统一管理。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 协议和混淆组合如何优化稳定性？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 的策略组如何根据节点延迟自动切换？</h5></div>
     <div class="panel-body">
-        根据网络封锁情况选择合适协议和混淆组合，如 tls1.2_ticket_auth 模拟 HTTPS 流量。合理组合可提高抗封锁能力和稳定性，保证节点长期可用并优化网络连接。    </div>
+        策略组会根据节点延迟和丢包率自动选择最优节点。结合路由规则，可保证国内流量直连、海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的核心组件有哪些？</h5></div>
+    <div class="panel-body">
+        V2Ray 的核心由 inbound、outbound、routing、policy 等模块组成。Inbound 处理入站请求，Outbound 负责出站连接，Routing 管理流量分流策略。模块化的设计让用户可以自由组合代理方式。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 的规则订阅更新机制是怎样的？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持远程规则订阅 URL，可自动下载并更新节点和分流规则。用户可设置更新频率，如每天或每小时，确保规则和节点始终保持最新状态，提高网络管理效率。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -411,22 +411,43 @@ Clash在多并发连接及大规模代理请求场景中表现稳定，连接速
 </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default box right-ad-box">
+    <div class="panel-heading">
+        <h3 class="panel-title">特别推荐</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="text-center">
+                <a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">
+                    <img src="/assets/website/img/G/luniuyun.webp" class="avatar" alt="绿牛云">
+                </a>
+                <dl>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></dt>
+                    <dd>
+                        <p>高速稳定的网络加速</p>
+                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
+全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p>                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">热门文章</h3>
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-5-29-vpn-proxy.htm" title="免费VPN推荐 | 5月29日20.4M/S|免费SSR节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点订阅节点地址">免费VPN推荐 | 5月29日20.4M/S|免费SSR节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-7-share-vpn.htm" title="免费VPN推荐 | 5月7日20.8M/S|免费Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Singbox节点/Trojan节点订阅节点地址">免费VPN推荐 | 5月7日20.8M/S|免费Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Singbox节点/Trojan节点订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-22-vpn-proxy.htm" title="免费VPN推荐 | 4月22日18.7M/S|免费Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点订阅节点地址">免费VPN推荐 | 4月22日18.7M/S|免费Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-13-top-vpn.htm" title="免费VPN推荐 | 4月13日20.9M/S|免费Trojan节点/Singbox节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点订阅节点地址">免费VPN推荐 | 4月13日20.9M/S|免费Trojan节点/Singbox节点/Shadowrocket节点/SSR节点/Clash节点/V2ray节点订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-8-free-node-subscribe.htm" title="免费VPN推荐 | 5月8日21.1M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点/V2ray节点订阅节点地址">免费VPN推荐 | 5月8日21.1M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点/V2ray节点订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-17-top-vpn-node.htm" title="免费VPN推荐 | 4月17日19.4M/S|免费Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Trojan节点订阅节点地址">免费VPN推荐 | 4月17日19.4M/S|免费Clash节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Trojan节点订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-19-free-node-subscribe-links.htm" title="免费VPN推荐 | 4月19日20.4M/S|免费Trojan节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Clash节点订阅节点地址">免费VPN推荐 | 4月19日20.4M/S|免费Trojan节点/Shadowrocket节点/SSR节点/V2ray节点/Singbox节点/Clash节点订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-21-vpn-github.htm" title="免费VPN推荐 | 4月21日18.8M/S|免费SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点订阅节点地址">免费VPN推荐 | 4月21日18.8M/S|免费SSR节点/V2ray节点/Clash节点/Trojan节点/Singbox节点/Shadowrocket节点订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-28-free-vpn.htm" title="免费VPN推荐 | 4月28日21.6M/S|免费V2ray节点/Trojan节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点订阅节点地址">免费VPN推荐 | 4月28日21.6M/S|免费V2ray节点/Trojan节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点订阅节点地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-26-share-vpn.htm" title="免费VPN推荐 | 5月26日19.4M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/SSR节点/Clash节点/Trojan节点订阅节点地址">免费VPN推荐 | 5月26日19.4M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/SSR节点/Clash节点/Trojan节点订阅节点地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-8-free-node-subscribe.htm" title="免费VPN推荐 | 5月8日21.1M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点/V2ray节点订阅节点地址">免费VPN推荐 | 5月8日21.1M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Clash节点/Trojan节点/V2ray节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-25-vpn-github.htm" title="免费VPN推荐 | 5月25日19.9M/S|免费Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点/Clash节点订阅节点地址">免费VPN推荐 | 5月25日19.9M/S|免费Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点/SSR节点/Clash节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-31-top-vpn.htm" title="免费VPN推荐 | 5月31日19.7M/S|免费Singbox节点/SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点订阅节点地址">免费VPN推荐 | 5月31日19.7M/S|免费Singbox节点/SSR节点/Clash节点/V2ray节点/Shadowrocket节点/Trojan节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-12-free-node-subscribe-links.htm" title="免费VPN推荐 | 5月12日19.9M/S|免费Trojan节点/Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点订阅节点地址">免费VPN推荐 | 5月12日19.9M/S|免费Trojan节点/Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-4-vpn-node.htm" title="免费VPN推荐 | 5月4日21.5M/S|免费Trojan节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点订阅节点地址">免费VPN推荐 | 5月4日21.5M/S|免费Trojan节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点/Singbox节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-13-free-vpn-node.htm" title="免费VPN推荐 | 5月13日18.2M/S|免费Singbox节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点/SSR节点订阅节点地址">免费VPN推荐 | 5月13日18.2M/S|免费Singbox节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点/SSR节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-20-vpn-free.htm" title="免费VPN推荐 | 5月20日19.7M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点/Trojan节点订阅节点地址">免费VPN推荐 | 5月20日19.7M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点/Trojan节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-3-vpn-free.htm" title="免费VPN推荐 | 5月3日18.4M/S|免费Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点/Trojan节点订阅节点地址">免费VPN推荐 | 5月3日18.4M/S|免费Shadowrocket节点/Singbox节点/SSR节点/V2ray节点/Clash节点/Trojan节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-23-free-node-subscribe-links.htm" title="免费VPN推荐 | 5月23日21M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点地址">免费VPN推荐 | 5月23日21M/S|免费Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-1-free-vpn.htm" title="免费VPN推荐 | 6月1日20.7M/S|免费Trojan节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点/V2ray节点订阅节点地址">免费VPN推荐 | 6月1日20.7M/S|免费Trojan节点/Singbox节点/SSR节点/Shadowrocket节点/Clash节点/V2ray节点订阅节点地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -438,10 +459,10 @@ Clash在多并发连接及大规模代理请求场景中表现稳定，连接速
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">5</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                     </ul>
     </div>
@@ -469,6 +490,9 @@ Clash在多并发连接及大规模代理请求场景中表现稳定，连接速
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></b> <p>高速稳定的网络加速</p>
+                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
+全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p></div>
                                         <p>
                         <a href="/">免费VPN推荐 推荐免费VPN节点订阅中文网</a> 版权所有 Powered by WordPress
                     </p>
