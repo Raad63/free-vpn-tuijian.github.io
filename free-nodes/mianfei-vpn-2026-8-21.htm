@@ -284,14 +284,19 @@ shadowrocket允许用户自定义DNS服务器，如使用Google DNS、Cloudflare
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Surfboard 策略组如何提升在线视频体验？</h5></div>
+    <div class="panel-body">
+        Surfboard 可通过策略组将视频流量分配到低延迟、高带宽节点，自动切换到最佳节点，减少缓冲和卡顿，提高在线视频播放的流畅性和整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 是否支持 IPv6 流量代理？</h5></div>
+    <div class="panel-body">
+        Mellow 支持 IPv6，只需在配置文件中启用 IPv6 DNS 解析并确认操作系统开启 IPv6 路由功能。部分节点若不支持 IPv6，则相关请求会自动回退到 IPv4，保证兼容性。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 支持哪几种代理协议？</h5></div>
     <div class="panel-body">
         Shadowrocket 支持多种协议，包括 Shadowsocks、Vmess、VLess、Trojan、HTTP、SOCKS5 等。它还可解析部分 QuantumultX 与 Clash 的订阅格式，适合 iOS 用户进行全协议代理管理与切换。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 策略组如何根据延迟自动切换节点？</h5></div>
-    <div class="panel-body">
-        策略组会根据节点延迟和丢包率选择最佳节点。结合路由规则，可保证国内流量直连、海外流量走最优节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何用 systemd 管理 V2Ray/ Sing-box 服务？</h5></div>
@@ -304,24 +309,9 @@ shadowrocket允许用户自定义DNS服务器，如使用Google DNS、Cloudflare
         原版 SSR 并不完全支持 UDP 转发，但部分魔改版本（如 SSRR）支持该功能。可在配置中开启 udp-over-tcp 模式或使用 Socks5 UDP relay 方案实现游戏等实时通信的代理需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 支持 Trojan 协议吗？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 策略组如何根据延迟自动切换节点？</h5></div>
     <div class="panel-body">
-        WinXray 内核基于 Xray-core，因此原生支持 Trojan 协议。用户在导入配置时，只需选择 Trojan 类型节点即可，无需额外插件，非常适合需要 TLS 伪装的环境。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 策略组如何提升在线视频体验？</h5></div>
-    <div class="panel-body">
-        Surfboard 可通过策略组将视频流量分配到低延迟、高带宽节点，自动切换到最佳节点，减少缓冲和卡顿，提高在线视频播放的流畅性和整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 是否支持 IPv6 流量代理？</h5></div>
-    <div class="panel-body">
-        Mellow 支持 IPv6，只需在配置文件中启用 IPv6 DNS 解析并确认操作系统开启 IPv6 路由功能。部分节点若不支持 IPv6，则相关请求会自动回退到 IPv4，保证兼容性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 的分组策略可以自动切换节点吗？</h5></div>
-    <div class="panel-body">
-        可以。用户可以设置策略组，PassWall2 会定期测速并根据延迟或成功率自动选择最优节点，实现智能节点切换，保证网络稳定性。<hr />    </div>
+        策略组会根据节点延迟和丢包率选择最佳节点。结合路由规则，可保证国内流量直连、海外流量走最优节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的协议参数如何提高抗封锁能力？</h5></div>
@@ -331,7 +321,17 @@ shadowrocket允许用户自定义DNS服务器，如使用Google DNS、Cloudflare
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 如何设置用户带宽限制？</h5></div>
     <div class="panel-body">
-        管理员可为每个用户设置上传和下载带宽上限。超出限制可自动降速或阻止访问，保证服务器资源合理分配，避免单用户占用过多带宽，提高整体公平性和使用效率。    </div>
+        管理员可为每个用户设置上传和下载带宽上限。超出限制可自动降速或阻止访问，保证服务器资源合理分配，避免单用户占用过多带宽，提高整体公平性和使用效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 的分组策略可以自动切换节点吗？</h5></div>
+    <div class="panel-body">
+        可以。用户可以设置策略组，PassWall2 会定期测速并根据延迟或成功率自动选择最优节点，实现智能节点切换，保证网络稳定性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 支持 Trojan 协议吗？</h5></div>
+    <div class="panel-body">
+        WinXray 内核基于 Xray-core，因此原生支持 Trojan 协议。用户在导入配置时，只需选择 Trojan 类型节点即可，无需额外插件，非常适合需要 TLS 伪装的环境。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -379,16 +379,16 @@ shadowrocket允许用户自定义DNS服务器，如使用Google DNS、Cloudflare
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-14-vpn-free.htm" title="免费VPN推荐 | 8月14日22.1M/S|免费SSR节点/Singbox节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点订阅节点地址">免费VPN推荐 | 8月14日22.1M/S|免费SSR节点/Singbox节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点订阅节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-22-free-vpn-node.htm" title="免费VPN推荐 | 8月22日19.7M/S|免费V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/Singbox节点/SSR节点订阅节点地址">免费VPN推荐 | 8月22日19.7M/S|免费V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/Singbox节点/SSR节点订阅节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-19.htm" title="免费VPN推荐 | 8月19日21.2M/S|免费Trojan节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点/Singbox节点订阅节点地址">免费VPN推荐 | 8月19日21.2M/S|免费Trojan节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点/Singbox节点订阅节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-23-vpn-github.htm" title="免费VPN推荐 | 7月23日18.8M/S|免费Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/Trojan节点/SSR节点订阅节点地址">免费VPN推荐 | 7月23日18.8M/S|免费Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/Trojan节点/SSR节点订阅节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-28-free-node-subscribe.htm" title="免费VPN推荐 | 7月28日19.7M/S|免费Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点订阅节点地址">免费VPN推荐 | 7月28日19.7M/S|免费Singbox节点/V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/vpn-github-2026-8-31.htm" title="免费VPN推荐 | 8月31日21.2M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点/Clash节点订阅节点地址">免费VPN推荐 | 8月31日21.2M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Singbox节点/Trojan节点/Clash节点订阅节点地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-vpn-2026-8-9.htm" title="免费VPN推荐 | 8月9日21.3M/S|免费SSR节点/Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点订阅节点地址">免费VPN推荐 | 8月9日21.3M/S|免费SSR节点/Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点订阅节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/top-vpn-2026-8-29.htm" title="免费VPN推荐 | 8月29日21.2M/S|免费V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点地址">免费VPN推荐 | 8月29日21.2M/S|免费V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点订阅节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-26-free-node-subscribe.htm" title="免费VPN推荐 | 8月26日21.1M/S|免费Shadowrocket节点/Trojan节点/Clash节点/Singbox节点/SSR节点/V2ray节点订阅节点地址">免费VPN推荐 | 8月26日21.1M/S|免费Shadowrocket节点/Trojan节点/Clash节点/Singbox节点/SSR节点/V2ray节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/share-vpn-2026-8-7.htm" title="免费VPN推荐 | 8月7日18.9M/S|免费SSR节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/Clash节点订阅节点地址">免费VPN推荐 | 8月7日18.9M/S|免费SSR节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点/Clash节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-14-vpn-free.htm" title="免费VPN推荐 | 8月14日22.1M/S|免费SSR节点/Singbox节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点订阅节点地址">免费VPN推荐 | 8月14日22.1M/S|免费SSR节点/Singbox节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-3.htm" title="免费VPN推荐 | 9月3日21.4M/S|免费Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Singbox节点/Trojan节点订阅节点地址">免费VPN推荐 | 9月3日21.4M/S|免费Shadowrocket节点/SSR节点/V2ray节点/Clash节点/Singbox节点/Trojan节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-24-free-node-subscribe.htm" title="免费VPN推荐 | 8月24日20.6M/S|免费V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点/Singbox节点订阅节点地址">免费VPN推荐 | 8月24日20.6M/S|免费V2ray节点/Clash节点/Shadowrocket节点/SSR节点/Trojan节点/Singbox节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-20-free-vpn-node.htm" title="免费VPN推荐 | 8月20日19M/S|免费Shadowrocket节点/Singbox节点/Trojan节点/SSR节点/Clash节点/V2ray节点订阅节点地址">免费VPN推荐 | 8月20日19M/S|免费Shadowrocket节点/Singbox节点/Trojan节点/SSR节点/Clash节点/V2ray节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-12-node-share.htm" title="免费VPN推荐 | 8月12日19.3M/S|免费Trojan节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点订阅节点地址">免费VPN推荐 | 8月12日19.3M/S|免费Trojan节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点订阅节点地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-16-node-share.htm" title="免费VPN推荐 | 8月16日20.8M/S|免费Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点订阅节点地址">免费VPN推荐 | 8月16日20.8M/S|免费Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点订阅节点地址</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/share-vpn-2026-8-15.htm" title="免费VPN推荐 | 8月15日22.4M/S|免费Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点/SSR节点订阅节点地址">免费VPN推荐 | 8月15日22.4M/S|免费Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点/SSR节点订阅节点地址</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-4-free-vpn-node.htm" title="免费VPN推荐 | 8月4日20.5M/S|免费SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/Clash节点订阅节点地址">免费VPN推荐 | 8月4日20.5M/S|免费SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Singbox节点/Clash节点订阅节点地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -400,10 +400,10 @@ shadowrocket允许用户自定义DNS服务器，如使用Google DNS、Cloudflare
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
